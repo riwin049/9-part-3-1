@@ -1,0 +1,572 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+:root {
+    --bg-color: #1f242d;
+    --main-color: #7cf03d;
+}
+.html {
+    scroll-behavior: smooth;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: #fff;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.navbar {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    padding: 25px 9%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    visibility: hidden;
+    opacity: 0;
+    animation: show-content 1.5s linear forwards;
+    animation-delay: 1.2s;
+}
+
+@keyframes show-content {
+    100%{
+        visibility: visible;
+        opacity: 1;
+
+    }
+}
+.navbar .logo {
+    font-size: 30px;
+    font-weight: 700;
+}
+.navbar ul {
+    display: flex;
+}
+.navbar ul li {
+    list-style: none;
+    margin-left: 35px;
+}
+.navbar ul li a {
+    font-size: 20px;
+    font-weight: 500;
+    transition: .5s;
+}
+.navbar ul li:hover a,
+.navbar ul li.active a {
+    color: #7cf03d;
+
+}
+/* Home section */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body {
+    background-color: var(--bg-color);
+    color: #fff;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+.section {
+    min-height: 100vh;      /* เปลี่ยน height เป็น min-height */
+    width: 100%;
+    padding: 10rem 9% 2rem;
+    background: #1f242d;    /* แก้สีให้ถูก */
+    overflow: hidden;
+}   
+.section.active {
+    visibility: visible;
+    opacity: 1;
+    overflow: auto;
+}
+
+.Home {
+    gap: 50px;
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    padding: 60px 9% 0;
+    color: #fff;
+    visibility: hidden;
+    opacity: 0;
+    animation: show-content 1.5s linear forwards;
+    animation-delay: 1.6s;
+}
+.Home-info h1 {
+    font-size: 55px;
+}
+.Home-info h2{
+    font-size: 30px;
+    margin-top: -10px;
+}
+.Home-info h2 span {
+    position: relative;
+    display: inline-block;
+    color:  transparent;
+    -webkit-text-stroke: .7px #7cf03d;
+    animation: display-text 16s linear infinite;
+    animation-delay: calc(-4s * var(--i));
+}
+
+
+@keyframes display-text {
+    25%,100%{
+         color: transparent;
+         -webkit-text-stroke: .7px #7cf03d;
+       display: none;
+    }
+}
+
+.Home-info h2 span::before {
+    content: attr(data-text);
+    position: absolute;
+    width: 0;
+    border-right: 2px solid #7cf03d;
+    color: #7cf03d;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: full-text 4s linear infinite;
+}
+
+@keyframes full-text {
+    10%,100%{
+        width: 0;
+    }
+    70%,90%{
+        width: 100%;
+    }
+}
+
+.Home-info h3 {
+    margin: 20px 0;
+    font-size: 25px; 
+}
+.Home-info .btn {
+    display: inline-block;
+   align-items: center;
+}
+.btn {
+    background: #7cf03d;
+    padding: 10px 25px;
+    border: 2px solid #7cf03d;
+    border-radius: 40px;
+    box-shadow: 0 0 10px #7cf03d;
+    font-size: 16px;
+    color: #1f242d;
+    font-weight: 600;
+}
+.btn:hover {
+    background: transparent;
+    color: #7cf03d;
+    box-shadow: none ;
+}
+
+.Home-img .img-box {
+    position: relative;
+    width: 32vw;
+    height: 32vw;
+    border-radius: 50%;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.Home-img .img-box::before,
+.Home-img .img-box::after
+ {
+    content: '';
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: conic-gradient(transparent, transparent,transparent, #7cf03d);
+    transform: rotate(0deg);
+    animation: rotate-border 4s linear infinite;
+}
+
+@keyframes rotate-border {
+    100%{
+        transform: rotate(360deg);
+    }
+
+}
+.Home-img .img-box .img-item {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #1f242d;
+    display: flex;
+    border: 1px solid #1f242d;
+    justify-content: center;
+    z-index: 1;
+    overflow: hidden;
+}
+.Home-img .img-box .img-item img {
+    position: absolute;
+    top: 30px;
+    display: block;
+    width: 85%;
+    object-fit: cover;
+    mix-blend-mode: lighten;
+}
+
+.bars-animation {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    z-index: -1;
+}
+.bars-animation .bar{
+    width: 100%;
+    height: 100%;
+    background: #1f242d;
+    border: 2px solid #257953;
+    transform: translateY(-100%);
+    animation: show-bars .5s ease-in-out forwards;
+    animation-delay: calc(.1s * var(--i));
+}
+@keyframes show-bars {
+    100%{
+        transform: translateY(0%);
+    }
+}
+.About {
+    gap: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    padding: 60px 9% 0;
+    color: #fff;
+    visibility: hidden;
+    opacity: 0;
+    animation: show-content 1.5s linear forwards;
+    animation-delay: 1.6s;
+}
+.About-img .img-box {
+    position: relative;
+    width: 32vw;
+    height: 32vw;
+    border-radius: 50%;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}                       
+.About-img .img-box::before,
+.About-img .img-box::after
+ {
+    content: '';
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: conic-gradient(transparent, transparent,transparent, #7cf03d);
+    transform: rotate(0deg);
+    animation: rotate-border 4s linear infinite;
+}
+@keyframes rotate-border {
+    100%{
+        transform: rotate(360deg);
+    }
+}
+.About-img .img-box .img-item {  
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #1f242d;
+    display: flex;
+    border: 1px solid #1f242d;
+    justify-content: center;
+    z-index: 1;
+    overflow: hidden;
+}
+.About-img .img-box .img-item img {
+    position: absolute;
+    top: 30px;
+    display: block;
+    width: 85%;
+    object-fit: cover;
+    mix-blend-mode: lighten;
+}
+.About-content h2 {
+    font-size: 40px;
+}
+.About-content h2 span {
+    color: #7cf03d;
+}
+.About-content h3 {
+    font-size: 25px;
+    margin: 20px 0;
+}
+.About-content p {
+    font-size: 18px;
+    line-height: 1.8em;
+    margin-bottom: 20px;
+}
+.About-content .btn {
+    display: inline-block;
+    align-items: center;
+}
+.btn {
+    background: #7cf03d;
+    padding: 10px 25px;
+    border: 2px solid #7cf03d;
+    border-radius: 40px;
+    box-shadow: 0 0 10px #7cf03d;
+    font-size: 16px;
+    color: #1f242d;
+    font-weight: 600;
+}
+
+.btn:hover {
+    background: transparent;
+    color: #7cf03d;
+    box-shadow: none ;
+}
+/* Responsive Media Query */
+@media (max-width: 768px) {
+    .Home, .About, .Work {
+        flex-direction: column;
+        text-align: center;
+    }
+    .Home-img .img-box,
+    .About-img .img-box {
+        width: 60vw;
+        height: 60vw;
+        margin-bottom: 20px;
+    }
+}
+
+
+/* --- Work Section Styling --- */
+.portfolio-container {
+   display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    gap: 2.5rem;
+    margin-top: 20px;
+}
+
+
+.portfolio-box {
+    position: relative;
+    border-radius: 2rem;
+    box-shadow: 0 0 1rem #1f242d;
+    overflow: hidden;
+    display: flex;
+    height: 300px; /* กำหนดความสูงให้เท่ากัน */
+}
+.portfolio-box img {
+    width: 100%;
+    height: 100%; /* ให้รูปเต็มกรอบ */
+    object-fit: cover; /* ตัดส่วนเกินรูปออกให้พอดี */
+    transition: .5s ease;
+}
+
+.portfolio-box:hover img {
+    transform: scale(1.1);
+}
+
+.portfolio-box .portfolio-layer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0,0,0,.1), #7cf03d);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 0 4rem;
+    transform: translateY(100%);
+    transition: .5s ease;
+}
+
+.portfolio-box:hover .portfolio-layer {
+    transform: translateY(0);
+}
+
+.portfolio-layer h4 {
+    font-size: 3rem;
+    color: #1f242d; /* สีเข้มเพื่อให้ตัดกับพื้นหลังเขียว */
+}
+
+.portfolio-layer p {
+    font-size: 1.6rem;
+    margin: .3rem 0 1rem;
+    color: #1f242d;
+}
+
+.portfolio-layer a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 5rem;
+    height: 5rem;
+    background: #fff;
+    border-radius: 50%;
+}
+
+.portfolio-layer a i {
+    font-size: 2rem;
+    color: #333;
+}
+
+/* --- Skills Section Styling --- */
+.Skills {
+    min-height: 100vh;
+    padding-bottom: 7rem;
+    background: #1f242d; /* หรือ var(--bg-color) */
+}
+
+.skills-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5rem;
+    width: 100%;
+}
+
+.skills-column {
+    flex: 1 1 40rem;
+}
+
+.skills-column .title {
+    font-size: 2.5rem;
+    margin: 0 0 1.5rem;
+}
+
+.skills-box {
+    position: relative;
+}
+
+.skills-box .skills-content {
+    position: relative;
+    border: .2rem solid #7cf03d;
+    border-radius: .6rem;
+    padding: .5rem 1.5rem;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.skills-box .skills-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #2c303a;
+    z-index: -1;
+    transition: .5s;
+}
+
+.skills-box .skills-content:hover::before {
+    width: 100%;
+}
+
+.skills-content .progress {
+    padding: 1rem 0;
+}
+
+.skills-content .progress h3 {
+    font-size: 1.7rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.skills-content .progress h3 span {
+    color: #fff;
+}
+
+.skills-content .progress .bar {
+    height: 2.5rem;
+    border-radius: .6rem;
+    border: .2rem solid #7cf03d;
+    padding: .5rem;
+    margin: 1rem 0;
+}
+
+.skills-content .progress .bar span {
+    display: block;
+    height: 100%;
+    border-radius: .3rem;
+    background: #7cf03d;
+    width: 0; /* Default width before animation */
+}
+/* ตัวอย่างการกำหนดความยาวของหลอดพลัง (Skills) */
+.skills-column:nth-child(1) .skills-content .progress:nth-child(1) .bar span { width: 90%; }
+.skills-column:nth-child(1) .skills-content .progress:nth-child(2) .bar span { width: 80%; }
+.skills-column:nth-child(1) .skills-content .progress:nth-child(3) .bar span { width: 65%; }
+.skills-column:nth-child(1) .skills-content .progress:nth-child(4) .bar span { width: 70%; }
+
+.skills-column:nth-child(2) .skills-content .progress:nth-child(1) .bar span { width: 95%; }
+.skills-column:nth-child(2) .skills-content .progress:nth-child(2) .bar span { width: 85%; }
+.skills-column:nth-child(2) .skills-content .progress:nth-child(3) .bar span { width: 60%; }
+.skills-column:nth-child(2) .skills-content .progress:nth-child(4) .bar span { width: 90%; }
+
+
+/* --- Contact Section Styling --- */
+.Contact {
+    min-height: 100vh;
+}
+
+.Contact form {
+    max-width: 70rem;
+    margin: 1rem auto;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.Contact form .input-box {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.Contact form .input-box input,
+.Contact form textarea {
+    width: 100%;
+    padding: 1.5rem;
+    font-size: 1.6rem;
+    color: #fff;
+    background: #323946;
+    border-radius: .8rem;
+    margin: .7rem 0;
+    border: none; /* เอาขอบเดิมออก */
+}
+
+.Contact form .input-box input {
+    width: 49%;
+}
+
+.Contact form textarea {
+    resize: none;
+}
+
+/* เพิ่มลูกเล่นเมื่อกดพิมพ์ */
+.Contact form .input-box input:focus,
+.Contact form textarea:focus {
+    border: 2px solid #7cf03d;
+    background: #1f242d;
+}
